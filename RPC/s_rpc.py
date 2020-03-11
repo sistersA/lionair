@@ -16,7 +16,7 @@ with SimpleXMLRPCServer(('localhost', 8000),
     penerbangan2 = ['jakarta', 'inggris', 'turki', '20.00 - 20.55']
     info.append(penerbangan2)
     
-    # Operasi hitung
+    
     def informasi_transit(asal, tujuan):
         for i in range(0,len(info)):
             if(info[i][0]==asal and info[i][1]==tujuan):
