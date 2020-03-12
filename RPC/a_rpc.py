@@ -1,6 +1,6 @@
 import xmlrpc.client
 
-s = xmlrpc.client.ServerProxy('http://localhost:8000')
+s = xmlrpc.client.ServerProxy('http://192.168.43.109:8000')
 
 n=1
 while(n!=0):
@@ -25,7 +25,7 @@ while(n!=0):
 			if(a=="Y"):
 				c=True
 			else:
-    			c=False
+    			        c=False
 			print("==================================================")
 	elif(n==2):
 		info = s.DaftarPenerbangan()

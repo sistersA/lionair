@@ -1,19 +1,20 @@
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
+from datetime import datetime
 
 # Restrict to a particular path.
 class RequestHandler(SimpleXMLRPCRequestHandler):
     rpc_paths = ('/RPC2',)
 
 # Buat server
-with SimpleXMLRPCServer(('localhost', 8000),
+with SimpleXMLRPCServer(('192.168.43.109', 8000),
                         requestHandler=RequestHandler) as server:
     server.register_introspection_functions()
 
     info = [] #NoPenerbangan,asal,tujuan,transit,boarding
-    penerbangan1 = ['1','bandung', 'tokyo', 'singapura', '23.30 - 23.55']
+    penerbangan1 = ['1','bandung', 'tokyo', 'singapura', '23.30 - 23.55', 'update']
     info.append(penerbangan1)
-    penerbangan2 = ['2','jakarta', 'inggris', 'turki', '20.00 - 20.55']
+    penerbangan2 = ['2','jakarta', 'inggris', 'turki', '20.00 - 20.55', 'update']
     info.append(penerbangan2)
     
 
@@ -34,6 +35,7 @@ with SimpleXMLRPCServer(('localhost', 8000),
                 info[i][2]=tujuan
                 info[i][3]=transit
                 info[i][4]=boarding
+                info[i][5]=datetime.now()
                 return(info)
     server.register_function(update_penerbangan,'updatePenerbangan')  
 
@@ -66,7 +68,12 @@ with SimpleXMLRPCServer(('localhost', 8000),
         
     server.register_function(informasi_asal, 'asal')
     
-
+    def informasi_waktuUpdate(no):
+        for i in range(0,len(info)):
+            if(info[i][0]==no):
+                return info[i][5]
+        
+    server.register_function(informasi_waktuUpdate, 'wup')
 
     # Run the server's main loop
     server.serve_forever()
