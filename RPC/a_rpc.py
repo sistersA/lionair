@@ -25,7 +25,7 @@ while(n!=0):
 			if(a=="Y"):
 				c=True
 			else:
-    			c=False
+    			        c=False
 			print("==================================================")
 	elif(n==2):
 		info = s.DaftarPenerbangan()
