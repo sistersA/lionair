@@ -4,15 +4,18 @@ s = xmlrpc.client.ServerProxy('http://localhost:8000')
 
 # Print semua operasi yang dapat dilakukan
 print(s.system.listMethods())
-print("--------------------")
+print("----------------------------------------")
 #Eksekusi
-asal = str(input("Asal  = "))
-tujuan = str(input("Tujuan = "))
-print("Asal=",asal)
-print("Tujuan =",tujuan)
+no = str(input("Nomor Penerbangan  = "))
+
+print("Nomor Penerbangan=",no)
+
 print()
 
-print("boarding : ",s.inboard(asal,tujuan))
-print("Transit : ",s.insit(asal,tujuan))
+print("asal : ",s.asal(no))
+print("Tujuan : ",s.tujuan(no))
+print("boarding : ",s.inboard(no))
+print("Transit : ",s.insit(no))
+
 
 #s.close()
