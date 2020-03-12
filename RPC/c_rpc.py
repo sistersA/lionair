@@ -14,17 +14,15 @@ print()
 
 print("asal : ",s.asal(no))
 print("Tujuan : ",s.tujuan(no))
-b=s.inboard(no)
-ins=s.insit(no)
-print("boarding : ",b)
-print("Transit : ",ins)
+print("boarding : ",s.inboard(no))
+print("Transit : ",s.insit(no))
 
 
 
 
 # format board
-board = "No Penerbangan : {}\nBoarding: {}".format(no,b)
-transit = "No Penerbangan : {}\nBoarding: {}".format(no,ins)
+board = "No Penerbangan : {}\nBoarding: {}".format(no,s.inboard(no))
+transit = "No Penerbangan : {}\nBoarding: {}".format(no,s.insit(no))
 # buka file untuk ditulis
 file_board = open("boarding.txt", "w")
 file_transit = open("trans.txt", "w")
