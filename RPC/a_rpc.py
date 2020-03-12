@@ -22,8 +22,10 @@ while(n!=0):
 			print()
 			print(s.insert(no,asal,tujuan,transit,boarding))
 			a = str(input("Input Lagi(Y/N)?"))
-			if(a=="N"):
-				c=False
+			if(a=="Y"):
+				c=True
+			else:
+    			c=False
 			print("==================================================")
 	elif(n==2):
 		info = s.DaftarPenerbangan()
