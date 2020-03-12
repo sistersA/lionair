@@ -21,8 +21,8 @@ while(n!=0):
 			boarding = str(input("Boarding = "))
 			print()
 			print(s.insert(no,asal,tujuan,transit,boarding))
-			a = str(input("Input Lagi?(Y/N"))
-			if(a=='N'):
+			a = str(input("Input Lagi(Y/N)?"))
+			if(a=="N"):
 				c=False
 			print("==================================================")
 	elif(n==2):
@@ -48,6 +48,6 @@ while(n!=0):
 				elif(k==4):
 					info[i][4] = input("Boarding :")
 				print()
-				print(s.updatePenerbangan(no,asal,tujuan,transit,boarding))
+				print(s.updatePenerbangan(no,info[i][1],info[i][2],info[i][3],info[i][4]))
 
 

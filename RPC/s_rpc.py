@@ -35,7 +35,7 @@ with SimpleXMLRPCServer(('localhost', 8000),
                 info[i][3]=transit
                 info[i][4]=boarding
                 return(info)
-    server.register_function(insert_penerbangan,'updatePenerbangan')  
+    server.register_function(update_penerbangan,'updatePenerbangan')  
 
 
     def informasi_transit(no):
@@ -52,19 +52,19 @@ with SimpleXMLRPCServer(('localhost', 8000),
         
     server.register_function(informasi_boarding, 'inboard')
 
-        def informasi_tujuan(no):
-            for i in range(0,len(info)):
+    def informasi_tujuan(no):
+        for i in range(0,len(info)):
             if(info[i][0]==no):
                 return info[i][2]
         
-    server.register_function(informasi_transit, 'tujuan')
+    server.register_function(informasi_tujuan, 'tujuan')
 
     def informasi_asal(no):
         for i in range(0,len(info)):
             if(info[i][0]==no):
                 return info[i][1]
         
-    server.register_function(informasi_boarding, 'asal')
+    server.register_function(informasi_asal, 'asal')
     
 
 
